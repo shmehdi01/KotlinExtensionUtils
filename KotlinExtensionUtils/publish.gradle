@@ -17,7 +17,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/shmehdi01/KotlinExtensionUtils")
             credentials {
                 username = "shmehdi01"
-                password =  "6b768f2073866299ae13676cf33c86bdd880fc9b"
+                password =  "a3d3d79d4b56acbd7dc60a66b9f5d1b111559d1c"
             }
         }
     }
@@ -27,12 +27,12 @@ publishing {
             groupId LIB_GROUP_ID
             artifactId LIB_ARTIFACT_ID
             version LIB_VERSION
-            artifact("$buildDir/outputs/aar/payments-release.aar")
+            artifact("$buildDir/outputs/aar/KotlinExtensionUtils-release.aar")
             artifact(sourceJar)
             pom {
-                name = 'QB Billing SDK'
-                description = 'A library to use for payment SDK'
-                url = 'https://github.com/syedqbuster/QBBillingSDK'
+                name = 'Kotlin Extension Utils'
+                description = 'Useful Ktolin extension boiler plate code by S H Mehdi'
+                url = 'https://github.com/shmehdi01/KotlinExtensionUtils'
 
                 developers {
                     developer {

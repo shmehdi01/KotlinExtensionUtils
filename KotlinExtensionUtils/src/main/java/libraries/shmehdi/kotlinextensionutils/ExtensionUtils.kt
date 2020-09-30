@@ -33,9 +33,12 @@ import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
 
-fun ImageView.loadImage(url: String?, placeHolder: Int = R.drawable.ic_launcher_background) {
+fun ImageView.loadImage(url: String?, placeHolder: Int = -1) {
     if (url?.isEmpty() == true) return
-    Picasso.get().load(url).placeholder(placeHolder).into(this)
+
+    if(placeHolder != -1)
+        Picasso.get().load(url).placeholder(placeHolder).into(this)
+    else Picasso.get().load(url).into(this)
 }
 
 fun View.gone() {
@@ -197,8 +200,8 @@ fun EditText.queryListener(bindClear: View? = null, onQueryChanged: (String) -> 
 }
 
 fun FragmentActivity.emailIntent(
-    email: String = "azadarimedia72@gmail.com",
-    subject: String = "Feedback:Azadari Media",
+    email: String = "",
+    subject: String = "",
     body: String = "Hi,"
 ) {
     startActivity(
