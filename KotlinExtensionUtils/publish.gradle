@@ -2,7 +2,7 @@ apply plugin: 'maven-publish'
 
 def LIB_GROUP_ID = 'shmehdi.libraires'
 def LIB_ARTIFACT_ID = 'extensionutils'
-def LIB_VERSION = '1.0.0'
+def LIB_VERSION = '1.0.1'
 
 task sourceJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -17,7 +17,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/shmehdi01/KotlinExtensionUtils")
             credentials {
                 username = "shmehdi01"
-                password =  "a3d3d79d4b56acbd7dc60a66b9f5d1b111559d1c"
+                password =  "9616ba3aa33aac4ba1882adf024e8f9bc5c7f641"
             }
         }
     }

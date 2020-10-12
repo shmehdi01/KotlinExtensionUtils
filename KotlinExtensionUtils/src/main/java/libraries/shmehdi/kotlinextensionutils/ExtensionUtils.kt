@@ -3,10 +3,8 @@ package libraries.shmehdi.kotlinextensionutils
 import android.Manifest
 import android.animation.*
 import android.app.Activity
-import android.content.ActivityNotFoundException
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.content.*
+import android.content.Context.CLIPBOARD_SERVICE
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
@@ -359,4 +357,21 @@ fun Activity.checkPermissionUtil(permission: String, sharedPreferences: SharedPr
     }else {
         listener(false,false)
     }
+}
+
+fun <T> List<T>.merge(list : List<T>): List<T> {
+    return mutableListOf<T>().also {
+        it.addAll(this)
+        it.addAll(list)
+    }
+}
+
+fun Activity.copyClipboard(label: String?, value: String?, showToast: Boolean = true) {
+    val clipboard =
+        getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+    val clip = ClipData.newPlainText(label, value)
+    clipboard.setPrimaryClip(clip)
+
+    if(showToast)
+        Toast.makeText(this, "$label copied", Toast.LENGTH_SHORT).show()
 }
